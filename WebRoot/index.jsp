@@ -9,9 +9,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+  
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>首页</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -40,12 +41,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   {
 	      color:#000;
 	   }
+	   div.login
+	   {
+			float:right;
+			margin-top:-40px;
+	   }
 	</style>
   </head>
   
   <body>
     <h1>商品展示</h1>
+<%
+    String flag = "";
+    Object object = session.getAttribute("flag");
+    if(object != null) {
+        flag = object.toString();
+    }
+    if(flag.equals("login_success")) {
+%>
+	<div class = "login">
+        <a href="<%= request.getContextPath() %>/LogoutServlet">退出</a>
+    </div>
+<%
+    } else {
+%>
+	<div class = "login">
+        <a href="<%= request.getContextPath() %>/login.jsp">登录</a><br/>
+    </div>
+<%
+    }
+%>
+  
+    
+    
     <hr>
+  
+
+  
+  
+  
   
     <center>
     <table width="750" height="60" cellpadding="0" cellspacing="0" border="0">

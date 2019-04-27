@@ -122,7 +122,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                </tr> 
              </table>
              <div id="cart">
-               <img src="images/buy_now.png"><a href="javascript:selflog_show(<%=item.getId()%>)"><img src="images/in_cart.png"></a><a href="servlet/CartServlet?action=show"><img src="images/view_cart.jpg"/></a>
+               <a href=makeError.jsp><img src="images/buy_now.png"></a>
+               <a href="javascript:selflog_show(<%=item.getId()%>)"><img src="images/in_cart.png"></a>
+               <a href="servlet/CartServlet?action=show"><img src="images/view_cart.jpg"/></a>
              </div>
           </td>
           <% 
